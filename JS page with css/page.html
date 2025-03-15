@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Login Form</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #5676b6;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background: #1b3467;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(3, 27, 68, 0.9);
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+        .container h2 {
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+            background-color: #5676b6;
+            width: 95%;
+            font-family: cursive;
+            box-shadow: 0px 0px 10px rgba(13, 39, 66, 0.9);
+            border-radius: 9px;
+        }
+        .input-group label {
+            display: block;
+            padding: 3px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            background-color: #28a745;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            let container = document.createElement("div");
+            container.className = "container";
+            
+            let title = document.createElement("h2");
+            title.textContent = "Login";
+            container.appendChild(title);
+            
+            let form = document.createElement("form");
+            
+            let usernameGroup = document.createElement("div");
+            usernameGroup.className = "input-group";
+            usernameGroup.innerHTML = '<label for="username">Username:</label>' +
+                                      '<input type="text" id="username" required>';
+            
+            let passwordGroup = document.createElement("div");
+            passwordGroup.className = "input-group";
+            passwordGroup.innerHTML = '<label for="password">Password:</label>' +
+                                      '<input type="password" id="password" required>';
+            
+            let loginBtn = document.createElement("button");
+            loginBtn.className = "btn";
+            loginBtn.textContent = "Login";
+            loginBtn.type = "submit";
+            
+            form.appendChild(usernameGroup);
+            form.appendChild(passwordGroup);
+            form.appendChild(loginBtn);
+            container.appendChild(form);
+            document.body.appendChild(container);
+            
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+                let username = document.getElementById("username").value;
+                let password = document.getElementById("password").value;
+                
+                if (username && password) {
+                    alert("Login successful!");
+                } else {
+                    alert("Please fill in all fields.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
